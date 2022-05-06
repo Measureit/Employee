@@ -7,6 +7,11 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Employee.Domain\Employee.Domain.csproj" />
+    <ProjectReference Include="..\lib\Employee.Contract\Employee.Contract.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Handlers\Events\" />
   </ItemGroup>
 
 </Project>

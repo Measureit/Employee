@@ -6,6 +6,6 @@ namespace Employee.Application.Services
 {
     public interface IRegistrationNumberGenerator
     {
-
+        int GetNext();
     }
 }

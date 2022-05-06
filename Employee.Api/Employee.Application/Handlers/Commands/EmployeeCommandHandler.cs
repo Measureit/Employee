@@ -1,4 +1,5 @@
-﻿using Employee.Contract.Commands;
+﻿using Employee.Application.Services;
+using Employee.Contract.Commands;
 using Employee.Contract.Events;
 using Employee.Domain.EmployeeAggregate;
 using Middlink.Core;
@@ -7,23 +8,26 @@ using Middlink.Core.MessageBus;
 using Middlink.Core.Storage;
 using System.Threading.Tasks;
 
-namespace Employee.Infrastructure.Handlers.Commands
+namespace Employee.Application.Handlers.Commands
 {
-    public class EmployeeCommandHandler : 
+    public class EmployeeCommandHandler :
         ICommandHandler<CreateEmployee>,
         ICommandHandler<UpdateEmployee>
     {
         private readonly IRepository<EmployeeEntity> _repository;
         private readonly IPublisher _publisher;
-        public EmployeeCommandHandler(IPublisher publisher, IRepository<EmployeeEntity> repository)
+        private readonly IRegistrationNumberGenerator _sequenceGenerator;
+        public EmployeeCommandHandler(IPublisher publisher, IRepository<EmployeeEntity> repository, IRegistrationNumberGenerator sequenceGenerator)
         {
-            _publisher = publisher;
             _repository = repository;
+            _publisher = publisher;
+            _sequenceGenerator = sequenceGenerator;
         }
 
         public async Task HandleAsync(CreateEmployee command, ICorrelationContext context)
         {
-            var aggregate = new EmployeeEntity(command.AggregateId, new RegistrationNumber(command.RegistrationNumber), new Surname(command.Surname), new Gender(command.Gender));
+            var sequence =_sequenceGenerator.GetNext();
+            var aggregate = new EmployeeEntity(command.AggregateId, new RegistrationNumber(sequence), new Surname(command.Surname), new Gender(command.Gender));
             await _repository.AddAsync(aggregate);
             await _publisher.PublishAsync(new EmployeeCreated(aggregate.Id), context);
         }

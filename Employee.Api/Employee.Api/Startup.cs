@@ -1,8 +1,8 @@
 ﻿using Autofac;
 using Employee.Api.Options;
+using Employee.Application.Handlers.Queries;
 using Employee.Contract.Commands;
 using Employee.Contract.Events;
-using Employee.Infrastructure.Handlers.Commands;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;

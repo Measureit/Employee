@@ -12,10 +12,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Handlers\Events\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Middlink.CQRS" Version="1.1.13" />
   </ItemGroup>
 
