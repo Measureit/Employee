@@ -1,19 +1,25 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.0.31815.197
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31729.503
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Employee.Api", "Employee.Api\Employee.Api.csproj", "{A0D384E9-EDFD-4A9A-AFF1-4B4867FDCA97}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Employee.Api", "Employee.Api\Employee.Api.csproj", "{A0D384E9-EDFD-4A9A-AFF1-4B4867FDCA97}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Employee.Domain", "Employee.Domain\Employee.Domain.csproj", "{905BF0BC-B3E0-4C30-BAB3-80327654DA4A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Employee.Domain", "Employee.Domain\Employee.Domain.csproj", "{905BF0BC-B3E0-4C30-BAB3-80327654DA4A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Employee.Application", "Employee.Application\Employee.Application.csproj", "{654F74C2-7744-403F-920E-8DAE65BB7B32}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Employee.Application", "Employee.Application\Employee.Application.csproj", "{654F74C2-7744-403F-920E-8DAE65BB7B32}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Employee.Infrastructure", "Employee.Infrastructure\Employee.Infrastructure.csproj", "{DE3A7AD6-0EAD-4F1F-96F0-6772F452DB9F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Employee.Infrastructure", "Employee.Infrastructure\Employee.Infrastructure.csproj", "{DE3A7AD6-0EAD-4F1F-96F0-6772F452DB9F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Employee.Domain.UnitTest", "tst\Employee.Domain.UnitTest\Employee.Domain.UnitTest.csproj", "{232EB3B8-BFCA-4966-9A72-9AF28C625A53}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Employee.Domain.UnitTest", "tst\Employee.Domain.UnitTest\Employee.Domain.UnitTest.csproj", "{232EB3B8-BFCA-4966-9A72-9AF28C625A53}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tst", "tst", "{39F2BE04-1D72-42C1-80EB-935868D3EDCD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{EB841D5A-FDBB-4792-ABCA-C1D69CF5723B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Employee.Contract", "lib\Employee.Contract\Employee.Contract.csproj", "{9F16BEB6-05BD-4E2A-B426-8896115AC529}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Employee.Framework", "lib\Employee.Framework\Employee.Framework.csproj", "{25E41B4B-43ED-499C-ABB4-4B1C57E68E8B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,12 +47,22 @@ Global
 		{232EB3B8-BFCA-4966-9A72-9AF28C625A53}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{232EB3B8-BFCA-4966-9A72-9AF28C625A53}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{232EB3B8-BFCA-4966-9A72-9AF28C625A53}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F16BEB6-05BD-4E2A-B426-8896115AC529}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F16BEB6-05BD-4E2A-B426-8896115AC529}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F16BEB6-05BD-4E2A-B426-8896115AC529}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F16BEB6-05BD-4E2A-B426-8896115AC529}.Release|Any CPU.Build.0 = Release|Any CPU
+		{25E41B4B-43ED-499C-ABB4-4B1C57E68E8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{25E41B4B-43ED-499C-ABB4-4B1C57E68E8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{25E41B4B-43ED-499C-ABB4-4B1C57E68E8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{25E41B4B-43ED-499C-ABB4-4B1C57E68E8B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{232EB3B8-BFCA-4966-9A72-9AF28C625A53} = {39F2BE04-1D72-42C1-80EB-935868D3EDCD}
+		{9F16BEB6-05BD-4E2A-B426-8896115AC529} = {EB841D5A-FDBB-4792-ABCA-C1D69CF5723B}
+		{25E41B4B-43ED-499C-ABB4-4B1C57E68E8B} = {EB841D5A-FDBB-4792-ABCA-C1D69CF5723B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {93A0BE5D-6911-4418-B272-D1D1309B665F}

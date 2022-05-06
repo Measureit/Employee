@@ -1,13 +1,11 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-	  <LangVersion>preview</LangVersion>
     <TargetFramework>netstandard2.1</TargetFramework>
-    <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\lib\Employee.Framework\Employee.Framework.csproj" />
+    <PackageReference Include="Middlink.CQRS" Version="1.1.13" />
   </ItemGroup>
 
 </Project>

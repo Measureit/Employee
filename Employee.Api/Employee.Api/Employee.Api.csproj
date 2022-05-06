@@ -1,9 +1,8 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net5.0</TargetFramework>
     <Nullable>enable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>c5451afb-e670-4218-924e-edffa40b001a</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
   </PropertyGroup>
@@ -11,12 +10,26 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.14.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+	  <PackageReference Include="Autofac" Version="6.3.0" />
+	  <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="7.2.0" />
+	  <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
+
+	  <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="5.0.0" />
+	  <PackageReference Include="Middlink.CQRS" Version="1.1.13" />
+	  <PackageReference Include="Middlink.CQRS.Autofac" Version="1.1.13" />
+	  <PackageReference Include="Middlink.CQRS.Operations.SignalR" Version="1.1.13" />
+
+	  <PackageReference Include="Middlink.MessageBus.InMemory.Autofac" Version="1.1.13" />
+	  <PackageReference Include="Middlink.MVC" Version="1.1.13" />
+	  <PackageReference Include="System.Reactive" Version="5.0.0" />
+	  <PackageReference Include="System.Text.Json" Version="6.0.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Employee.Application\Employee.Application.csproj" />
     <ProjectReference Include="..\Employee.Domain\Employee.Domain.csproj" />
     <ProjectReference Include="..\Employee.Infrastructure\Employee.Infrastructure.csproj" />
+    <ProjectReference Include="..\lib\Employee.Contract\Employee.Contract.csproj" />
   </ItemGroup>
 
 </Project>
