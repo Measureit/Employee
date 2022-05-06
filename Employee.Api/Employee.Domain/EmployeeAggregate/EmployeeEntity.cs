@@ -17,10 +17,8 @@ namespace Employee.Domain.EmployeeAggregate
             Gender = gender is not null ? gender : throw new EmployeeException(Codes.IS_NOT_SPECIFIED);
         }
 
-        public EmployeeEntity Update(RegistrationNumber number, Surname surname, Gender gender)
+        public EmployeeEntity Update(Surname surname, Gender gender)
         {
-
-            Number = number;
             Surname = surname;
             Gender = gender;
             return this;

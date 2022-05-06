@@ -7,16 +7,16 @@ namespace Employee.Domain.EmployeeAggregate
     public class RegistrationNumber : ValueObject
     {
         public string Value { get; }
-        public static RegistrationNumber From(string input)
+        public RegistrationNumber(int sequence)
         {
-            if(input.Length > 8)
+            var input = sequence.ToString();
+
+            if (input.Length > 8)
             {
                 throw new EmployeeException(Codes.REGISTRATION_NUMBER_NOT_IN_RANGE);
             }
-
-            return new RegistrationNumber(input.PadLeft(8, '0'));
+            Value = input.PadLeft(8, '0');
         }
-        private RegistrationNumber(string value) => (Value) = (value);
 
         protected override IEnumerable<object> GetEqualityComponents()
         {

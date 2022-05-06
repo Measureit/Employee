@@ -15,7 +15,6 @@ namespace Employee.Api.Controllers
     [Route("api/v{version:apiVersion}/[controller]/[action]")]
     public class EmployeeController : BaseController
     {
-
         public EmployeeController(
           IPublisher busPublisher,
           IQueryDispatcher queryDispatcher) : base(busPublisher, queryDispatcher)
@@ -37,8 +36,7 @@ namespace Employee.Api.Controllers
         [HttpPut]
         public Task<IActionResult> Update(UpdateEmployee command)
         {
-            var cmd = command;
-            return SendAsync(cmd, resourceId: cmd.AggregateId, resource: "employee/get");
+            return SendAsync(command, resourceId: command.AggregateId, resource: "employee/get");
         }
     }
 }

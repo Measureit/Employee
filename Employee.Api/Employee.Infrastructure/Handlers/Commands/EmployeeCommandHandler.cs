@@ -23,7 +23,7 @@ namespace Employee.Infrastructure.Handlers.Commands
 
         public async Task HandleAsync(CreateEmployee command, ICorrelationContext context)
         {
-            var aggregate = new EmployeeEntity(command.AggregateId, RegistrationNumber.From(command.RegistrationNumber), Surname.From(command.Surname), Gender.From(command.Gender));
+            var aggregate = new EmployeeEntity(command.AggregateId, new RegistrationNumber(command.RegistrationNumber), new Surname(command.Surname), new Gender(command.Gender));
             await _repository.AddAsync(aggregate);
             await _publisher.PublishAsync(new EmployeeCreated(aggregate.Id), context);
         }
@@ -31,7 +31,7 @@ namespace Employee.Infrastructure.Handlers.Commands
         public async Task HandleAsync(UpdateEmployee command, ICorrelationContext context)
         {
             var aggregate = await _repository.GetAsync(command.AggregateId);
-            aggregate.Update(RegistrationNumber.From(command.RegistrationNumber), Surname.From(command.Surname), Gender.From(command.Gender));
+            aggregate.Update(new Surname(command.Surname), new Gender(command.Gender));
             await _repository.UpdateAsync(aggregate);
             await _publisher.PublishAsync(new EmployeeUpdated(aggregate.Id), context);
         }

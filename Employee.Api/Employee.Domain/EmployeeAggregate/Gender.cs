@@ -13,16 +13,15 @@ namespace Employee.Domain.EmployeeAggregate
     public class Gender : ValueObject
     {
         public GenderEnum Value { get; }
-        public static Gender From(int input)
+        public Gender(int input)
         {
             if (!Enum.IsDefined(typeof(GenderEnum), input))
             {
                 throw new EmployeeException(Codes.GENDER_NOT_IN_RANGE);
             }
 
-            return new Gender((GenderEnum)input);
+            Value = (GenderEnum)input;
         }
-        private Gender(GenderEnum value) => (Value) = (value);
 
         protected override IEnumerable<object> GetEqualityComponents()
         {
