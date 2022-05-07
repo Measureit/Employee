@@ -9,7 +9,7 @@ namespace Employee.Domain.EmployeeAggregate
         public string Value { get; }
         public Surname(string input)
         {
-            if(input.Length > 0 && input.Length > 50)
+            if(input.Length < 1 && input.Length > 50)
             {
                 throw new EmployeeException(Codes.REGISTRATION_NUMBER_NOT_IN_RANGE);
             }

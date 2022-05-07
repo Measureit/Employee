@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Threading.Tasks;
 
 namespace Employee.Application.Services
 {
     public interface IRegistrationNumberGenerator
     {
-        int GetNext();
+        Task<int> GetNextAsync();
     }
 }

@@ -26,7 +26,7 @@ namespace Employee.Application.Handlers.Commands
 
         public async Task HandleAsync(CreateEmployee command, ICorrelationContext context)
         {
-            var sequence =_sequenceGenerator.GetNext();
+            var sequence = await _sequenceGenerator.GetNextAsync();
             var aggregate = new EmployeeEntity(command.AggregateId, new RegistrationNumber(sequence), new Surname(command.Surname), new Gender(command.Gender));
             await _repository.AddAsync(aggregate);
             await _publisher.PublishAsync(new EmployeeCreated(aggregate.Id), context);

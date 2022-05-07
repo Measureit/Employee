@@ -11,7 +11,7 @@ namespace Employee.Domain.EmployeeAggregate
         public Gender Gender { get; private set; }
         public EmployeeEntity(Guid id, RegistrationNumber number, Surname surname, Gender gender)
         {
-            Id = id;
+            Id = id != default ? id : throw new EmployeeException(Codes.IS_NOT_SPECIFIED);
             Number = number is not null ? number : throw new EmployeeException(Codes.IS_NOT_SPECIFIED);
             Surname = surname is not null ? surname : throw new EmployeeException(Codes.IS_NOT_SPECIFIED);
             Gender = gender is not null ? gender : throw new EmployeeException(Codes.IS_NOT_SPECIFIED);
@@ -19,6 +19,9 @@ namespace Employee.Domain.EmployeeAggregate
 
         public EmployeeEntity Update(Surname surname, Gender gender)
         {
+            if(surname is null || gender is null) 
+                throw new EmployeeException(Codes.IS_NOT_SPECIFIED);
+
             Surname = surname;
             Gender = gender;
             return this;

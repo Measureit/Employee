@@ -11,7 +11,7 @@ namespace Employee.Domain.EmployeeAggregate
         {
             var input = sequence.ToString();
 
-            if (input.Length > 8)
+            if (input.Length > 8 || sequence < 0)
             {
                 throw new EmployeeException(Codes.REGISTRATION_NUMBER_NOT_IN_RANGE);
             }
